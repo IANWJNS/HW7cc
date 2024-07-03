@@ -5,7 +5,7 @@
         public static void Main (string [] args)
         {
             Console.Clear();
-            string stringLoad = "Введите номер задачи (от 1 до 3) => ";
+            string stringLoad = "Номер задачи: ";
             System.Console.Write(stringLoad);
             Tasks(NumberInTerminal(3,stringLoad,1));
         }
@@ -15,37 +15,37 @@
             {
                 case 1:
                 {
-                    System.Console.WriteLine("Задача 1: Задайте значения M и N. Напишите программу, которая выведет ");
-                    System.Console.WriteLine("все натуральные числа в промежутке от M до N. Использовать рекурсию, не использовать циклы.");
-                    string firstText = "Введите значение М => ";
+                    System.Console.WriteLine("Задайте значения M и N. ");
+                    System.Console.WriteLine("Напишите программу, которая выведет все натуральные числа в промежутке от M до N. Использовать рекурсию, не использовать циклы.");
+                    string firstText = "М: ";
                     System.Console.Write(firstText);
                     int firstNumber = NumberInTerminal(0xFFFFFF,firstText,1);
-                    string secondText ="Введите значение N => ";
+                    string secondText ="N: ";
                     System.Console.Write(secondText);
                     int secondNumber = NumberInTerminal(0xFFFFFF,secondText,1);
-                    System.Console.WriteLine($"Числа от {firstNumber} до {secondNumber} => {ShowDigit(firstNumber,secondNumber)}");
+                    System.Console.WriteLine($"{firstNumber} и {secondNumber}: {ShowDigit(firstNumber,secondNumber)}");
                     break;
                 }
                 case 2:
                 {
-                    System.Console.WriteLine("Задача 2: Напишите программу вычисления функции Аккермана с помощью рекурсии.");
+                    System.Console.WriteLine("Напишите программу вычисления функции Аккермана с помощью рекурсии.");
                     System.Console.WriteLine("Даны два неотрицательных числа m и n.");
-                    string firstText = "Введите значение m => ";
+                    string firstText = "M: ";
                     System.Console.Write(firstText);
                     int firstNumber = NumberInTerminal(0xFFFFFF,firstText,0);
-                    string secondText ="Введите значение n => ";
+                    string secondText ="N: ";
                     System.Console.Write(secondText);
                     int secondNumber = NumberInTerminal(0xFFFFFF,secondText,0);
-                    System.Console.WriteLine($"Значение по фукнкции Аккермана ({firstNumber},{secondNumber}) = {Ack(firstNumber,secondNumber)}");
+                    System.Console.WriteLine($"Ответ: ({firstNumber},{secondNumber}) = {Ack(firstNumber,secondNumber)}");
                     break;
                 }
                 case 3:
                 {
-                    System.Console.WriteLine("Задача 3: Задайте произвольный массив. Выведете его элементы,");
-                    System.Console.WriteLine("начиная с конца. Использовать рекурсию, не использовать циклы.");
+                    System.Console.WriteLine("Задайте произвольный массив. Выведете его элементы, начиная с конца.");
+                    System.Console.WriteLine("Использовать рекурсию, не использовать циклы.");
                     int [] array = CreateArray(10,10,0);
-                    System.Console.WriteLine($"Произвольный массив => [{PrintArray(array)}]");
-                    System.Console.WriteLine($"Перевернутый массив => [{PrintArray(ArraySwap(array,array.Length-1))}]");
+                    System.Console.WriteLine($"Произвольный массив: [{PrintArray(array)}]");
+                    System.Console.WriteLine($"Перевернутый: [{PrintArray(ArraySwap(array,array.Length-1))}]");
                     break;
                 }
             }
@@ -101,7 +101,6 @@
             }
             return $"{firstDigit} " + ShowDigit(firstDigit+1,secondDigit);
         }
-        /*Функция ввода чисел в терминале*/
         public static int NumberInTerminal(int numberDigits, string repeatString, int minValueSet)
         {
             string ? numString = Console.ReadLine();
@@ -111,7 +110,7 @@
                     || !(numInt <= numberDigits)
                   )
             {
-                System.Console.WriteLine("Ошибка ввода, повторите");
+                System.Console.WriteLine("Oopsie, please try again!");
                 System.Console.Write(repeatString);
                 numString = Console.ReadLine(); 
             }
